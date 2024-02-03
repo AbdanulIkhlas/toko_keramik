@@ -144,7 +144,7 @@
 										<th> ID Barang</th>
 										<th> Nama Barang</th>
 										<th style="width:10%;"> Jumlah</th>
-										<th style="width:10%;"> Modal</th>
+										<th style="width:10%;"> Harga</th>
 										<th style="width:10%;"> Total</th>
 										<th> Kasir</th>
 										<th> Tanggal Input</th>
@@ -175,7 +175,7 @@
 										$modal = 0;
 										foreach($hasil as $isi){ 
 											$bayar += $isi['total'];
-											$modal += $isi['harga_beli']* $isi['jumlah'];
+											$harga_akumulasi += $isi['harga'];
 											$jumlah += $isi['jumlah'];
 									?>
 									<tr>
@@ -183,7 +183,7 @@
 										<td><?php echo $isi['id_barang'];?></td>
 										<td><?php echo $isi['nama_barang'];?></td>
 										<td><?php echo $isi['jumlah'];?> </td>
-										<td>Rp.<?php echo number_format($isi['harga_beli']* $isi['jumlah']);?>,-</td>
+										<td>Rp.<?php echo number_format($isi['harga']);?>,-</td>
 										<td>Rp.<?php echo number_format($isi['total']);?>,-</td>
 										<td><?php echo $isi['nm_member'];?></td>
 										<td><?php echo $isi['tanggal_input'];?></td>
@@ -194,7 +194,7 @@
 									<tr>
 										<th colspan="3">Total Terjual</td>
 										<th><?php echo $jumlah;?></td>
-										<th>Rp.<?php echo number_format($modal);?>,-</th>
+										<th>Rp.<?php echo number_format($harga_akumulasi);?>,-</th>
 										<th>Rp.<?php echo number_format($bayar);?>,-</th>
 										<th style="background:#0bb365;color:#fff;">Keuntungan</th>
 										<th style="background:#0bb365;color:#fff;">

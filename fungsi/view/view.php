@@ -153,7 +153,7 @@
 			}
 			
 			function jual(){
-				$sql ="SELECT nota.* , barang.id_barang, barang.nama_barang, barang.harga_beli, member.id_member,
+				$sql ="SELECT nota.* , barang.id_barang, barang.nama_barang, barang.harga, member.id_member,
 						member.nm_member from nota 
 					   left join barang on barang.id_barang=nota.id_barang 
 					   left join member on member.id_member=nota.id_member 
@@ -166,7 +166,7 @@
 			}
 
 			function periode_jual($periode){
-				$sql ="SELECT nota.* , barang.id_barang, barang.nama_barang, barang.harga_beli, member.id_member,
+				$sql ="SELECT nota.* , barang.id_barang, barang.nama_barang, barang.harga, member.id_member,
 						member.nm_member from nota 
 					   left join barang on barang.id_barang=nota.id_barang 
 					   left join member on member.id_member=nota.id_member WHERE nota.periode = ? 
@@ -190,7 +190,7 @@
 				}
 				$cek = $tgl.' '.$monthName.' '.$ex[0];
 				$param = "%{$cek}%";
-				$sql ="SELECT nota.* , barang.id_barang, barang.nama_barang,  barang.harga_beli, member.id_member,
+				$sql ="SELECT nota.* , barang.id_barang, barang.nama_barang,  barang.harga, member.id_member,
 						member.nm_member from nota 
 					   left join barang on barang.id_barang=nota.id_barang 
 					   left join member on member.id_member=nota.id_member WHERE nota.tanggal_input LIKE ? 
