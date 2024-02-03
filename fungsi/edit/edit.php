@@ -195,27 +195,27 @@ if(!empty($_SESSION['admin'])){
 			$row -> execute();
 			$hasil1= $row -> fetchAll();
 	?>
-		<table class="table table-stripped" width="100%" id="example2">
-			<tr>
-				<th>ID Barang</th>
-				<th>Nama Barang</th>
-				<th>Jenis</th>
-				<th>Harga</th>
-				<th>Aksi</th>
-			</tr>
-		<?php foreach($hasil1 as $hasil){?>
-			<tr>
-				<td><?php echo $hasil['id_barang'];?></td>
-				<td><?php echo $hasil['nama_barang'];?></td>
-				<td><?php echo $hasil['jenis'];?></td>
-				<td><?php echo $hasil['harga'];?></td>
-				<td>
-				<a href="fungsi/tambah/tambah.php?jual=harga&id=<?php echo $hasil['id_barang'];?>&id_kasir=<?php echo $_SESSION['admin']['id_member'];?>" 
-					class="btn btn-success">
-					<i class="fa fa-shopping-cart"></i></a></td>
-			</tr>
-		<?php }?>
-		</table>
+<table class="table table-stripped" width="100%" id="example2">
+	<tr>
+		<th>ID Barang</th>
+		<th>Nama Barang</th>
+		<th>Jenis</th>
+		<th>Harga</th>
+		<th>Aksi</th>
+	</tr>
+	<?php foreach($hasil1 as $hasil){?>
+	<tr>
+		<td><?php echo $hasil['id_barang'];?></td>
+		<td><?php echo $hasil['nama_barang'];?></td>
+		<td><?php echo $hasil['jenis'];?></td>
+		<td><?php echo $hasil['harga'];?></td>
+		<td>
+			<a href="fungsi/tambah/tambah.php?harga=<?php echo $hasil['harga'];?><?php echo $hasil['id_barang'];?>&id=<?php echo $hasil['id_barang'];?>&id_kasir=<?php echo $_SESSION['admin']['id_member'];?>"
+				class="btn btn-success">
+				<i class="fa fa-shopping-cart"></i></a></td>
+	</tr>
+	<?php }?>
+</table>
 <?php	
 		}
 	}
