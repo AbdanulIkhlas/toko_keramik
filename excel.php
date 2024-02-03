@@ -27,23 +27,25 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-	<!-- view barang -->	
-    <!-- view barang -->	
+    <!-- view barang -->
+    <!-- view barang -->
     <div class="modal-view">
-        <h3 style="text-align:center;"> 
-                <?php if(!empty($_GET['cari'])){ ?>
-                    Data Laporan Penjualan <?= $bulan_tes[$_GET['bln']];?> <?= $_GET['thn'];?>
-                <?php }elseif(!empty($_GET['hari'])){?>
-                    Data Laporan Penjualan <?= $_GET['tgl'];?>
-                <?php }else{?>
-                    Data Laporan Penjualan <?= $bulan_tes[date('m')];?> <?= date('Y');?>
-                <?php }?>
+        <h3 style="text-align:center;">
+            <?php if(!empty($_GET['cari'])){ ?>
+            Data Laporan Penjualan <?= $bulan_tes[$_GET['bln']];?> <?= $_GET['thn'];?>
+            <?php }elseif(!empty($_GET['hari'])){?>
+            Data Laporan Penjualan <?= $_GET['tgl'];?>
+            <?php }else{?>
+            Data Laporan Penjualan <?= $bulan_tes[date('m')];?> <?= date('Y');?>
+            <?php }?>
         </h3>
         <table border="1" width="100%" cellpadding="3" cellspacing="4">
             <thead>
@@ -52,7 +54,7 @@
                     <th> ID Barang</th>
                     <th> Nama Barang</th>
                     <th style="width:10%;"> Jumlah</th>
-                    <th style="width:10%;"> Modal</th>
+                    <th style="width:10%;"> Harga</th>
                     <th style="width:10%;"> Total</th>
                     <th> Kasir</th>
                     <th> Tanggal Input</th>
@@ -83,7 +85,7 @@
                     $modal = 0;
                     foreach($hasil as $isi){ 
                         $bayar += $isi['total'];
-                        $modal += $isi['harga_beli'] * $isi['jumlah'];
+                        $harga_akumulasi += $isi['harga'];
                         $jumlah += $isi['jumlah'];
                 ?>
                 <tr>
@@ -91,7 +93,7 @@
                     <td><?php echo $isi['id_barang'];?></td>
                     <td><?php echo $isi['nama_barang'];?></td>
                     <td><?php echo $isi['jumlah'];?> </td>
-                    <td>Rp.<?php echo number_format($isi['harga_beli']* $isi['jumlah']);?>,-</td>
+                    <td>Rp.<?php echo number_format($isi['harga']);?>,-</td>
                     <td>Rp.<?php echo number_format($isi['total']);?>,-</td>
                     <td><?php echo $isi['nm_member'];?></td>
                     <td><?php echo $isi['tanggal_input'];?></td>
@@ -102,14 +104,15 @@
                     <td>-</td>
                     <td><b>Total Terjual</b></td>
                     <td><b><?php echo $jumlah;?></b></td>
-                    <td><b>Rp.<?php echo number_format($modal);?>,-</b></td>
+                    <td><b>Rp.<?php echo number_format($harga_akumulasi);?>,-</b></td>
                     <td><b>Rp.<?php echo number_format($bayar);?>,-</b></td>
                     <td><b>Keuntungan</b></td>
                     <td><b>
-                        Rp.<?php echo number_format($bayar-$modal);?>,-</b></td>
+                            Rp.<?php echo number_format($bayar-$harga_akumulasi);?>,-</b></td>
                 </tr>
             </tbody>
         </table>
     </div>
 </body>
+
 </html>

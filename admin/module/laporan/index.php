@@ -198,7 +198,7 @@
 										<th>Rp.<?php echo number_format($bayar);?>,-</th>
 										<th style="background:#0bb365;color:#fff;">Keuntungan</th>
 										<th style="background:#0bb365;color:#fff;">
-											Rp.<?php echo number_format($bayar-$modal);?>,-</th>
+											Rp.<?php echo number_format($bayar-$harga_akumulasi);?>,-</th>
 									</tr>
 								</tfoot>
 							</table>
