@@ -30,7 +30,7 @@
                       </a>
 
                       <ul class="sub">
-                          <li><a  href="index.php?page=pelanggan">Pembeli</a></li>
+                          <!-- <li><a  href="index.php?page=pelanggan">Pembeli</a></li> -->
 
                           <li><a  href="index.php?page=barang
                             ">Barang</a></li>
@@ -70,9 +70,9 @@
                           <li><a href="index.php?page=pengaturan">Pengaturan Toko</a></li>
                       </ul>
 
-                       <ul class="sub">
+                       <!-- <ul class="sub">
                           <li><a href="index.php?page=pengaturan">Tentang Kami</a></li>
-                      </ul>
+                      </ul> -->
                   </li>
               </ul>
               <!-- sidebar menu end-->
