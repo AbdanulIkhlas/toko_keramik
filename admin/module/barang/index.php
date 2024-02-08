@@ -144,9 +144,11 @@
                              <tr>
                                  <th colspan="5">Total </td>
                                  <th><?php echo $totalStok;?></td>
-                                 <th style="background:#ddd"></td>
-                                 <th style="background:#ddd"></td>
-                                 <!-- <th>Rp.<?php echo number_format($totalJual);?>,-</td> -->
+                                 <th style="background:#ddd">
+                                     </td>
+                                 <th style="background:#ddd">
+                                     </td>
+                                     <!-- <th>Rp.<?php echo number_format($totalJual);?>,-</td> -->
                                  <th colspan="2" style="background:#ddd"></th>
                              </tr>
                          </tfoot>
@@ -215,7 +217,7 @@
                                              <td>
                                                  <select name="satuan" class="form-control" required>
                                                      <option value="#">Pilih Satuan</option>
-                                                     <option value="PCS">PCS</option>
+                                                     <option value="/DUS">/DUS</option>
                                                  </select>
                                              </td>
                                          </tr>

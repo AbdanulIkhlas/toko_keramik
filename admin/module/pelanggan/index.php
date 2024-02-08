@@ -214,7 +214,7 @@
  											<td>
  												<select name="satuan" class="form-control" required>
  													<option value="#">Pilih Satuan</option>
- 													<option value="PCS">PCS</option>
+ 													<option value="/DUS">/DUS</option>
  												</select>
  											</td>
  										</tr>

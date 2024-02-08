@@ -50,18 +50,19 @@
     <![endif]-->
 </head>
 
-<body style="background-image :url(assets/img/pic/background-login.jpg);
+<body style="background-image :url(assets/img/pic/background-login.png);
             color:#fff;
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-position: center;
+			height: 100vh;
 			">
 
 	<!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
 
-	<div id="login-page" style="padding-top:3pc;">
+	<div id="login-page" style="padding-top:3pc; margin-top:17vh;">
 		<div class="container">
 			<form class="form-login" method="POST">
 				<h2 class="form-login-heading">Login</h2>
