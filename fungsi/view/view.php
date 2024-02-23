@@ -8,6 +8,7 @@
 			$this->db = $db;
 		}
 			
+			// Fungsi untuk menampilkan data member
 			function member(){
 				$sql = "select member.*, login.*
 						from member inner join login on member.id_member = login.id_member";
@@ -17,6 +18,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk mengedit data member berdasarkan id
 			function member_edit($id){
 				$sql = "select member.*, login.*
 						from member inner join login on member.id_member = login.id_member
@@ -27,6 +29,7 @@
 				return $hasil;
 			}
 			
+			// Fungsi untuk menampilkan data toko
 			function toko(){
 				$sql = "select*from toko where id_toko='1'";
 				$row = $this-> db -> prepare($sql);
@@ -35,6 +38,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk menampilkan data kategori
 			function kategori(){
 				$sql = "select*from kategori";
 				$row = $this-> db -> prepare($sql);
@@ -43,6 +47,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk menampilkan data barang
 			function barang(){
 				$sql = "select barang.*, kategori.id_kategori, kategori.nama_kategori
 						from barang inner join kategori on barang.id_kategori = kategori.id_kategori 
@@ -53,6 +58,7 @@
 				return $hasil;
 			}
 			
+			// Fungsi untuk menampilkan barang dengan stok kurang dari atau sama dengan 3
 			function barang_stok(){
 				$sql = "select barang.*, kategori.id_kategori, kategori.nama_kategori
 						from barang inner join kategori on barang.id_kategori = kategori.id_kategori 
@@ -64,6 +70,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk mengedit data barang berdasarkan id
 			function barang_edit($id){
 				$sql = "select barang.*, kategori.id_kategori, kategori.nama_kategori
 						from barang inner join kategori on barang.id_kategori = kategori.id_kategori
@@ -74,6 +81,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk mencari barang berdasarkan kriteria pencarian
 			function barang_cari($cari){
 				$sql = "select barang.*, kategori.id_kategori, kategori.nama_kategori
 						from barang inner join kategori on barang.id_kategori = kategori.id_kategori
@@ -84,6 +92,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk menghasilkan ID barang baru
 			function barang_id(){
 				$sql = 'SELECT * FROM barang ORDER BY id DESC';
 				$row = $this-> db -> prepare($sql);
@@ -104,6 +113,7 @@
 				return $format;
 			}
 
+			// Fungsi untuk mengedit data kategori berdasarkan id
 			function kategori_edit($id){
 				$sql = "select*from kategori where id_kategori=?";
 				$row = $this-> db -> prepare($sql);
@@ -112,6 +122,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk menghitung jumlah kategori
 			function kategori_row(){
 				$sql = "select*from kategori";
 				$row = $this-> db -> prepare($sql);
@@ -120,6 +131,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk menghitung jumlah barang
 			function barang_row(){
 				$sql = "select*from barang";
 				$row = $this-> db -> prepare($sql);
@@ -128,6 +140,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk menghitung jumlah stok barang
 			function barang_stok_row(){
 				$sql ="SELECT SUM(stok) as jml FROM barang";
 				$row = $this-> db -> prepare($sql);
@@ -136,6 +149,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk menghitung total beli barang
 			function barang_beli_row(){
 				$sql ="SELECT SUM(harga_beli) as beli FROM barang";
 				$row = $this-> db -> prepare($sql);
@@ -144,6 +158,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk menghitung jumlah penjualan
 			function jual_row(){
 				$sql ="SELECT SUM(jumlah) as stok FROM nota";
 				$row = $this-> db -> prepare($sql);
@@ -151,7 +166,8 @@
 				$hasil = $row -> fetch();
 				return $hasil;
 			}
-			
+			// ------
+			// Fungsi untuk menampilkan data penjualan berdasarkan periode saat ini
 			function jual(){
 				$sql ="SELECT nota.* , barang.id_barang, barang.nama_barang, barang.harga, member.id_member,
 						member.nm_member from nota 
@@ -165,6 +181,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk menampilkan data penjualan berdasarkan periode tertentu
 			function periode_jual($periode){
 				$sql ="SELECT nota.* , barang.id_barang, barang.nama_barang, barang.harga, member.id_member,
 						member.nm_member from nota 
@@ -177,6 +194,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk menampilkan data penjualan berdasarkan hari tertentu
 			function hari_jual($hari){
 				$ex = explode('-', $hari);
 				$monthNum  = $ex[1];
@@ -201,6 +219,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk menampilkan data penjualan keseluruhan
 			function penjualan(){
 				$sql ="SELECT penjualan.* , barang.id_barang, barang.nama_barang, member.id_member,
 						member.nm_member from penjualan 
@@ -213,6 +232,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk menghitung total pembayaran dari penjualan
 			function jumlah(){
 				$sql ="SELECT SUM(total) as bayar FROM penjualan";
 				$row = $this -> db -> prepare($sql);
@@ -221,6 +241,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk menghitung total pembayaran dari nota
 			function jumlah_nota(){
 				$sql ="SELECT SUM(total) as bayar FROM nota";
 				$row = $this -> db -> prepare($sql);
@@ -229,6 +250,7 @@
 				return $hasil;
 			}
 
+			// Fungsi untuk menghitung total pembayaran pembelian barang
 			function jml(){
 				$sql ="SELECT SUM(harga_beli*stok) as byr FROM barang";
 				$row = $this -> db -> prepare($sql);
