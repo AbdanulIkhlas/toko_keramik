@@ -1,9 +1,12 @@
 <?php 
 	require 'config.php';
 	include $view;
+	// Membuat instance baru dari kelas view dengan menggunakan konfigurasi yang tersedia
 	$lihat = new view($config);
-	$toko = $lihat -> toko();
-	$hsl = $lihat -> penjualan();
+	// Memanggil metode untuk mengambil informasi tentang toko
+	$toko = $lihat->toko();
+	// Memanggil metode untuk mengambil data penjualan
+	$hsl = $lihat->penjualan();
 ?>
 <html>
 	<head>
@@ -11,6 +14,7 @@
 		<link rel="stylesheet" href="assets/css/bootstrap.css">
 	</head>
 	<body>
+		<!-- Menampilkan tampilan untuk mencetak halaman -->
 		<script>window.print();</script>
 		<div class="container">
 			<div class="row">
